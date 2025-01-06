@@ -1,0 +1,147 @@
+@font-face {
+    font-family: 'HanZi';
+    src: url(HanZi.ttf);
+}
+
+body {
+    margin: 0; 
+    padding: 0;
+    font-family: "HanZi";
+    overflow: hidden;
+    background: #000;
+}
+
+/* Текст пожеланий */
+p {
+    font-family: "HanZi";
+    font-size: 22px;
+    font-weight: bold;
+    color: #f9f9f9; 
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* Контейнер экрана */
+#hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Фоновое видео */
+#hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 10;
+}
+
+/* Модальное окно (затемняем фон) */
+.modal-container {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 40;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0,0,0,0.5);
+    transition: opacity 0.4s ease;
+}
+
+.modal-container.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Содержимое окна (красивенько оформленое <3) */
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    min-height: 300px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+
+    /* Полупрозрачный градиент + картинка  */
+    background: 
+      linear-gradient(
+        to bottom, 
+        rgba(0,0,0,0.3), 
+        rgba(0,0,0,0.7)
+      ), 
+      url("./Art/11.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Кнопка закрытия */
+.close {
+    font-family: "HanZi";
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #b23cf5; 
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.close:hover {
+    background-color: #9a2ce5;
+}
+
+/* Кнопки-«точки» (невидимые, но кликабельные) */
+.choice-button {
+    background-color: transparent;
+    height: 85px;
+    width: 85px;
+    z-index: 20;
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    opacity: 0; 
+}
+
+/* Позиции  */
+#open_1  { top: 47.5%; left: 14.5%; }
+#open_2  { top: 46%;   left: 28%;   }
+#open_3  { top: 36.5%; left: 36%;   }
+#open_4  { top: 42%;   left: 46%;   }
+#open_5  { top: 27%;   left: 29%;   }
+#open_6  { top: 27%;   left: 62.5%; }
+#open_7  { top: 41%;   left: 58%;   }
+#open_8  { top: 39.5%; left: 70.5%; }
+#open_9  { top: 67%;   left: 72%;   }
+#open_10 { top: 68%;   left: 57%;   }
+
+/* Кнопка запуска музыки (прозрачная, на весь экран) */
+#start-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
